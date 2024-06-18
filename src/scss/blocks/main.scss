@@ -1,12 +1,18 @@
 @use '../mixins/hover.scss' as *;
+@use '../mixins/resposive.scss' as *;
 
 .divider{
     width: 326px;
     height: 1px;
     background-color: var(--divider);
+    margin-left: 24px;
+    margin-top: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
+    @include responsive(desktop) {
+        background-color: transparent;
+        }
 }
 .toggle__container{
     width: 326px;
@@ -20,6 +26,27 @@
     border-radius:24px;
     background-color: var(--toggle-bg);
     position: relative;
+    &__container{
+        width: 326px;
+        margin-left: 25px;
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include responsive(desktop){
+            display: flex;
+            flex-direction: row;
+            width: 136px;
+            height: 24px;
+            margin-right: 165px;
+            margin-top: 49px;
+            @include hover {
+                    .toggle {
+                        background-color: var(--green-statitics);
+                    }
+                }
+        }
+    }
     &::after{
         content: '';
         position: absolute;
@@ -36,4 +63,8 @@
     font-size: 24px;
     font-weight: 700;
     color: var(--gray-subs);
+    margin-left: 24px;
+    @include responsive(desktop){
+        margin-left: 165px;
+    }
 }

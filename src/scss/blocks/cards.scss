@@ -1,8 +1,22 @@
+@use '../mixins/resposive.scss' as *;
+@use '../mixins/hover.scss' as *;
 .cards {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: -40px;
+  
+  @include responsive(desktop){
+    width: 1110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-inline: auto;
+    margin-top: -100px;
+    margin-bottom: 0;
+    
+  }
 }
 .card {
   width: 326px;
@@ -15,21 +29,68 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
+  @include responsive(desktop){
+    width: 255px;
+    
+  }
   
   &__header{
     height: 235px;
     width: 100%;
     background-color: var(--header-card-bg);
     border-radius: 0 0 20px 20px;
+    @include responsive(desktop) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      }
+    &--container{
+    width: 284px;
+    padding-top: 36px;
+    margin-left: 25px;
+    }
+        @include responsive(desktop) {
+          margin: 0;
+        }
+        
+  }
+  &__title{
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--black-number);
     margin-top: 0;
+    @include responsive(desktop) {
+      margin-left: 162px;
+      width: 331px;
+    }
+  }
+  &__subtitle{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-subs);
+    margin-top: 4px;
+    @include responsive(desktop) {
+        margin-left: 162px;
+        width: 331px;
+      }
   }
   &--facebook {
     border-top: solid 4px var(--facebook);
+    @include responsive(desktop) {
+        @include hover{
+          .--facebook{
+            background-color: red;
+          }
+        }
+      }
   }
   &--twitter {
     border-top: solid 4px var(--twitter);
   }
   &--instagram {
+    border-top:solid 4px orange;
     /*hacerlo con un after y levantarlo un poco para simular el borde*/
   }
   &--youtube {
@@ -80,12 +141,7 @@
       font-weight: 700;
       color: var(--error);
     }
-    &__title{
-      font-family: 'Inter', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      position: absolute;
-    }
+    
   }
 }
 
@@ -94,11 +150,70 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+@include responsive(desktop){
+  display: grid;
+  grid-template-columns: repeat(4, 255px);
+  grid-template-rows: repeat(2, 125px);
+  gap: 30px;
+}
+
   &__social--media{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    gap: 170px;
+    width: 271px;
+    margin: 25px;
+    @include responsive(desktop){
+      height: 20px;
+      width: 200px;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+  &__text{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-subs);
+    @include responsive(desktop) {  
+      width: 80px;
+    }
+  }
+  &__statistics{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 271px;
+    margin: 25px;
+    @include responsive(desktop) {
+        width: 200px;
+        margin: 24px;
+      }
+  }
+  &__number{
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--black-number);
+  }
+  &__percentage{
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
+  &__percentage--number--green{
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green-statitics);
+  }
+    &__percentage--number--red {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--error);
+    }
 }
 .minicard__container{
     height: 125px;
@@ -106,4 +221,9 @@
     background-color: var(--card-bg);
     border-radius: 5px;
     margin: 16px 24px;
+    @include responsive(desktop){
+      width: 255px;
+      height: 125px;
+      margin: 0;
+    }
 }
