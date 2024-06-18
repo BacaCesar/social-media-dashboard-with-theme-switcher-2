@@ -15,6 +15,14 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
+  
+  &__header{
+    height: 235px;
+    width: 100%;
+    background-color: var(--header-card-bg);
+    border-radius: 0 0 20px 20px;
+    margin-top: 0;
+  }
   &--facebook {
     border-top: solid 4px var(--facebook);
   }
@@ -72,5 +80,30 @@
       font-weight: 700;
       color: var(--error);
     }
+    &__title{
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      position: absolute;
+    }
   }
+}
+
+.minicards{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__social--media{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+.minicard__container{
+    height: 125px;
+    width: 326px;
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    margin: 16px 24px;
 }
